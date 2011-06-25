@@ -1,0 +1,71 @@
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-13 20:28:13
+project --topLevelPackage com.dermotherlihy.quotation
+persistence setup --provider HIBERNATE --database MYSQL
+entity --class com.dermotherlihy.quotation.model.Customer 
+field string --fieldName title --notNull --sizeMax 10
+field string --fieldName firstName --notNull --sizeMax 45
+field string --fieldName lastName --notNull --sizeMax 45
+field string --fieldName addressLine1 --notNull --sizeMax 45
+field string --fieldName addressLine2 --notNull --sizeMax 45
+field string --fieldName addressLine3 --notNull --sizeMax 45
+field string --fieldName postcode --notNull --sizeMax 15
+field string --fieldName phoneNumber --notNull --sizeMax 20
+logging setup --level DEBUG
+test integration 
+perform test
+perform eclipse
+perform test
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-13 21:09:19
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-13 21:44:19
+focus --class com.dermotherlihy.quotation.model.Customer
+// [failed] field string --fieldName emailAddress --notNull --sizeMax 45
+quit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-13 21:48:22
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-14 16:29:14
+hint
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-14 16:33:54
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-14 16:34:02
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-14 16:42:05
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-14 16:42:43
+perform tests
+hint
+persistence setup --provider HIBERNATE --database MYSQL --databaseName cleverplumber --userName root --password root
+perform tests
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-15 20:06:25
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-15 20:50:40
+persistence setup --provider HIBERNATE --database POSTGRES --databaseName cleverplumber --userName postgres --password postgres
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-15 20:52:20
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-16 22:16:11
+entity --class com.dermotherlihy.quotation.model.Company
+perform tests
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-16 22:23:02
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-21 22:33:19
+entity --class com.dermotherlihy.quotation.model.Quote
+field other --type com.dermotherlihy.quotation.model.Customer --fieldName customer --notNull 
+field enum --fieldName quoteType --type com.dermotherlihy.quotation.model.QuoteType --notNull 
+field enum --fieldName brochureType --type com.dermotherlihy.quotation.model.BrochureType 
+field number --fieldName labourCost --type java.math.BigDecimal --notNull
+field number --fieldName materialCost --type java.math.BigDecimal --notNull
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-21 22:39:27
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-21 22:54:49
+focus --class com.dermotherlihy.quotation.model.Quote
+// [failed] exit
+quit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-21 22:57:14
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-21 22:57:39
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-21 23:02:05
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-23 20:48:45
+entity --class com.dermotherlihy.quotation.model.Comment
+// [failed] entity --class com.dermotherlihy.quotation.model.Comment --testAutomatically 
+entity --class com.dermotherlihy.quotation.model.Comment --testAutomatically 
+field string --fieldName text --notNull --sizeMax 100
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-23 21:07:04
