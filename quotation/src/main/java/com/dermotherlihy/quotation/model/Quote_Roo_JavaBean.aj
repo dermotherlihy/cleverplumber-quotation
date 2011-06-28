@@ -5,6 +5,7 @@ package com.dermotherlihy.quotation.model;
 
 import com.dermotherlihy.quotation.model.BrochureType;
 import com.dermotherlihy.quotation.model.Comment;
+import com.dermotherlihy.quotation.model.Company;
 import com.dermotherlihy.quotation.model.Customer;
 import com.dermotherlihy.quotation.model.QuoteType;
 import java.math.BigDecimal;
@@ -54,6 +55,14 @@ privileged aspect Quote_Roo_JavaBean {
     
     public void Quote.setComments(Set<Comment> comments) {
         this.comments = comments;
+    }
+    
+    public Company Quote.getCompany() {
+        return this.company;
+    }
+    
+    public void Quote.setCompany(Company company) {
+        this.company = company;
     }
     
 }

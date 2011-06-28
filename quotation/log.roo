@@ -69,3 +69,8 @@ entity --class com.dermotherlihy.quotation.model.Comment --testAutomatically
 field string --fieldName text --notNull --sizeMax 100
 exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-23 21:07:04
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-25 18:28:42
+focus --class com.dermotherlihy.quotation.model.quote
+field other --type com.dermotherlihy.quotation.model.Company --fieldName company --notNull 
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-25 19:02:19
