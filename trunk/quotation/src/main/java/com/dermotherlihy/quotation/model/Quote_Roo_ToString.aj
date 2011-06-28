@@ -11,6 +11,7 @@ privileged aspect Quote_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("BrochureType: ").append(getBrochureType()).append(", ");
         sb.append("Comments: ").append(getComments() == null ? "null" : getComments().size()).append(", ");
+        sb.append("Company: ").append(getCompany()).append(", ");
         sb.append("Customer: ").append(getCustomer()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("LabourCost: ").append(getLabourCost()).append(", ");

@@ -3,7 +3,7 @@
 
 package com.dermotherlihy.quotation.model;
 
-import com.dermotherlihy.quotation.model.Comment;
+import com.dermotherlihy.quotation.model.Customer;
 import java.util.List;
 import java.util.Random;
 import org.springframework.stereotype.Component;
@@ -14,56 +14,122 @@ privileged aspect CommentDataOnDemand_Roo_DataOnDemand {
     
     private Random CommentDataOnDemand.rnd = new java.security.SecureRandom();
     
-    private List<Comment> CommentDataOnDemand.data;
+    private List<Customer> CommentDataOnDemand.data;
     
-    public Comment CommentDataOnDemand.getNewTransientComment(int index) {
-        com.dermotherlihy.quotation.model.Comment obj = new com.dermotherlihy.quotation.model.Comment();
-        setQuote(obj, index);
-        setText(obj, index);
+    public Customer CommentDataOnDemand.getNewTransientCustomer(int index) {
+        com.dermotherlihy.quotation.model.Customer obj = new com.dermotherlihy.quotation.model.Customer();
+        setTitle(obj, index);
+        setFirstName(obj, index);
+        setLastName(obj, index);
+        setAddressLine1(obj, index);
+        setAddressLine2(obj, index);
+        setAddressLine3(obj, index);
+        setPostcode(obj, index);
+        setPhoneNumber(obj, index);
+        setEmailAddress(obj, index);
         return obj;
     }
     
-    public void CommentDataOnDemand.setQuote(Comment obj, int index) {
-        com.dermotherlihy.quotation.model.Quote quote = null;
-        obj.setQuote(quote);
-    }
-    
-    public void CommentDataOnDemand.setText(Comment obj, int index) {
-        java.lang.String text = "text_" + index;
-        if (text.length() > 100) {
-            text = text.substring(0, 100);
+    public void CommentDataOnDemand.setTitle(Customer obj, int index) {
+        java.lang.String title = "title_" + index;
+        if (title.length() > 10) {
+            title = title.substring(0, 10);
         }
-        obj.setText(text);
+        obj.setTitle(title);
     }
     
-    public Comment CommentDataOnDemand.getSpecificComment(int index) {
+    public void CommentDataOnDemand.setFirstName(Customer obj, int index) {
+        java.lang.String firstName = "firstName_" + index;
+        if (firstName.length() > 45) {
+            firstName = firstName.substring(0, 45);
+        }
+        obj.setFirstName(firstName);
+    }
+    
+    public void CommentDataOnDemand.setLastName(Customer obj, int index) {
+        java.lang.String lastName = "lastName_" + index;
+        if (lastName.length() > 45) {
+            lastName = lastName.substring(0, 45);
+        }
+        obj.setLastName(lastName);
+    }
+    
+    public void CommentDataOnDemand.setAddressLine1(Customer obj, int index) {
+        java.lang.String addressLine1 = "addressLine1_" + index;
+        if (addressLine1.length() > 45) {
+            addressLine1 = addressLine1.substring(0, 45);
+        }
+        obj.setAddressLine1(addressLine1);
+    }
+    
+    public void CommentDataOnDemand.setAddressLine2(Customer obj, int index) {
+        java.lang.String addressLine2 = "addressLine2_" + index;
+        if (addressLine2.length() > 45) {
+            addressLine2 = addressLine2.substring(0, 45);
+        }
+        obj.setAddressLine2(addressLine2);
+    }
+    
+    public void CommentDataOnDemand.setAddressLine3(Customer obj, int index) {
+        java.lang.String addressLine3 = "addressLine3_" + index;
+        if (addressLine3.length() > 45) {
+            addressLine3 = addressLine3.substring(0, 45);
+        }
+        obj.setAddressLine3(addressLine3);
+    }
+    
+    public void CommentDataOnDemand.setPostcode(Customer obj, int index) {
+        java.lang.String postcode = "postcode_" + index;
+        if (postcode.length() > 15) {
+            postcode = postcode.substring(0, 15);
+        }
+        obj.setPostcode(postcode);
+    }
+    
+    public void CommentDataOnDemand.setPhoneNumber(Customer obj, int index) {
+        java.lang.String phoneNumber = "phoneNumber_" + index;
+        if (phoneNumber.length() > 20) {
+            phoneNumber = phoneNumber.substring(0, 20);
+        }
+        obj.setPhoneNumber(phoneNumber);
+    }
+    
+    public void CommentDataOnDemand.setEmailAddress(Customer obj, int index) {
+        java.lang.String emailAddress = "emailAddress_" + index;
+        if (emailAddress.length() > 45) {
+            emailAddress = emailAddress.substring(0, 45);
+        }
+        obj.setEmailAddress(emailAddress);
+    }
+    
+    public Customer CommentDataOnDemand.getSpecificCustomer(int index) {
         init();
         if (index < 0) index = 0;
         if (index > (data.size() - 1)) index = data.size() - 1;
-        Comment obj = data.get(index);
-        return Comment.findComment(obj.getId());
+        Customer obj = data.get(index);
+        return Customer.findCustomer(obj.getId());
     }
     
-    public Comment CommentDataOnDemand.getRandomComment() {
+    public Customer CommentDataOnDemand.getRandomCustomer() {
         init();
-        Comment obj = data.get(rnd.nextInt(data.size()));
-        return Comment.findComment(obj.getId());
+        Customer obj = data.get(rnd.nextInt(data.size()));
+        return Customer.findCustomer(obj.getId());
     }
     
-    public boolean CommentDataOnDemand.modifyComment(Comment obj) {
+    public boolean CommentDataOnDemand.modifyCustomer(Customer obj) {
         return false;
     }
     
     public void CommentDataOnDemand.init() {
-        data = com.dermotherlihy.quotation.model.Comment.findCommentEntries(0, 10);
-        if (data == null) throw new IllegalStateException("Find entries implementation for 'Comment' illegally returned null");
+        data = com.dermotherlihy.quotation.model.Customer.findCustomerEntries(0, 10);
+        if (data == null) throw new IllegalStateException("Find entries implementation for 'Customer' illegally returned null");
         if (!data.isEmpty()) {
             return;
         }
         
-        data = new java.util.ArrayList<com.dermotherlihy.quotation.model.Comment>();
+        data = new java.util.ArrayList<com.dermotherlihy.quotation.model.Customer>();
         for (int i = 0; i < 10; i++) {
-            com.dermotherlihy.quotation.model.Comment obj = getNewTransientComment(i);
+            com.dermotherlihy.quotation.model.Customer obj = getNewTransientCustomer(i);
             obj.persist();
             obj.flush();
             data.add(obj);
