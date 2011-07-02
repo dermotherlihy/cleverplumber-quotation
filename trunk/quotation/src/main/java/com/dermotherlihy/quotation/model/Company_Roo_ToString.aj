@@ -18,8 +18,7 @@ privileged aspect Company_Roo_ToString {
         sb.append("PhoneNumber: ").append(getPhoneNumber()).append(", ");
         sb.append("Postcode: ").append(getPostcode()).append(", ");
         sb.append("VatNumber: ").append(getVatNumber()).append(", ");
-        sb.append("Version: ").append(getVersion()).append(", ");
-        sb.append("_id: ").append(get_id());
+        sb.append("Version: ").append(getVersion());
         return sb.toString();
     }
     
