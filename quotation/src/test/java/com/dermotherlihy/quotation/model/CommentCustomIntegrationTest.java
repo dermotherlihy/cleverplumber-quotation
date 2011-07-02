@@ -31,7 +31,7 @@ public class CommentCustomIntegrationTest {
 	@Test
     public void testCreateComment(){
 		
-		Quote quote = QuoteTestData.createRandomQuote(customer);
+		Quote quote = QuoteTestData.createRandomQuote(customer, company);
 		Comment comment = new Comment();
 		comment.setQuote(quote);
 		comment.setText("Hey Mand!");
@@ -45,7 +45,7 @@ public class CommentCustomIntegrationTest {
 	@Test
     public void testDeleteComment(){
 		
-		Quote quote = QuoteTestData.createRandomQuote(customer);
+		Quote quote = QuoteTestData.createRandomQuote(customer, company);
 		Comment comment = new Comment();
 		comment.setQuote(quote);
 		comment.setText("Hey Mand!");

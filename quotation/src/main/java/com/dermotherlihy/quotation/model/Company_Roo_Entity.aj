@@ -26,19 +26,19 @@ privileged aspect Company_Roo_Entity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "_id")
-    private Long Company._id;
+    @Column(name = "id")
+    private Long Company.id;
     
     @Version
     @Column(name = "version")
     private Integer Company.version;
     
-    public Long Company.get_id() {
-        return this._id;
+    public Long Company.getId() {
+        return this.id;
     }
     
-    public void Company.set_id(Long id) {
-        this._id = id;
+    public void Company.setId(Long id) {
+        this.id = id;
     }
     
     public Integer Company.getVersion() {
@@ -61,7 +61,7 @@ privileged aspect Company_Roo_Entity {
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Company attached = Company.findCompany(this._id);
+            Company attached = Company.findCompany(this.id);
             this.entityManager.remove(attached);
         }
     }
@@ -100,9 +100,9 @@ privileged aspect Company_Roo_Entity {
         return entityManager().createQuery("SELECT o FROM Company o", Company.class).getResultList();
     }
     
-    public static Company Company.findCompany(Long _id) {
-        if (_id == null) return null;
-        return entityManager().find(Company.class, _id);
+    public static Company Company.findCompany(Long id) {
+        if (id == null) return null;
+        return entityManager().find(Company.class, id);
     }
     
     public static List<Company> Company.findCompanyEntries(int firstResult, int maxResults) {

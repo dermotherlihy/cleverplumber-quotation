@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dermotherlihy.quotation.model.testdata.CompanyTestData;
 import com.dermotherlihy.quotation.model.testdata.CustomerTestData;
 import com.dermotherlihy.quotation.model.testdata.QuoteTestData;
 
@@ -18,18 +19,21 @@ public class CommentIntegrationTest {
 
 	
 	private Customer customer = null;
+	private Company company = null;
 	
 	@Before
 	public void setup(){
 		customer = CustomerTestData.createRandomCustomer();
 		Customer.entityManager().persist(customer);
+		company = CompanyTestData.createRandomCompany();
+		Company.entityManager().persist(company);
 		
 	}
    
 	@Test
     public void testCreateComment(){
 		
-		Quote quote = QuoteTestData.createRandomQuote(customer);
+		Quote quote = QuoteTestData.createRandomQuote(customer, company);
 		Comment comment = new Comment();
 		comment.setQuote(quote);
 		comment.setText("Hey Mand!");
@@ -42,7 +46,7 @@ public class CommentIntegrationTest {
 	@Test
     public void testDeleteComment(){
 		
-		Quote quote = QuoteTestData.createRandomQuote(customer);
+		Quote quote = QuoteTestData.createRandomQuote(customer, company);
 		Comment comment = new Comment();
 		comment.setQuote(quote);
 		comment.setText("Hey Mand!");

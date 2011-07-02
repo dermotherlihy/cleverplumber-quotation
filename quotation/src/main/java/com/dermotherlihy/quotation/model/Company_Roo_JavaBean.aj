@@ -3,18 +3,9 @@
 
 package com.dermotherlihy.quotation.model;
 
-import java.lang.Long;
 import java.lang.String;
 
 privileged aspect Company_Roo_JavaBean {
-    
-    public Long Company.getId() {
-        return this.id;
-    }
-    
-    public void Company.setId(Long id) {
-        this.id = id;
-    }
     
     public String Company.getName() {
         return this.name;

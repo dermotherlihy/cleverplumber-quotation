@@ -11,7 +11,6 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooEntity
 public class Company {
-private Long id;
 	
 	@NotNull
 	@Size(min=1, max=45)
