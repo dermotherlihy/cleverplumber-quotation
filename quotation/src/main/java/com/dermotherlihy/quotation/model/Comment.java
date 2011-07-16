@@ -1,5 +1,6 @@
 package com.dermotherlihy.quotation.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
@@ -16,7 +17,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 public class Comment {
 
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinTable(name = "QuoteComment", joinColumns = {@JoinColumn(name="commentId")},
 	inverseJoinColumns = {@JoinColumn(name="quoteId")})
 	private Quote quote;
