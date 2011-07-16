@@ -57,11 +57,8 @@ public class CommentIntegrationTest {
 		Comment storedComment = quote.getComments().iterator().next();
 		Comment.entityManager().remove(storedComment);
 		
-		quote.getComments().remove(storedComment);
-		Quote.entityManager().persist(quote);
-		
 		quote = Quote.findQuote(quote.getId());
-		Assert.assertEquals(0,Comment.findAllComments().size());
+		quote.getComments().remove(storedComment);
 		Assert.assertEquals(0,quote.getComments().size());
     }
 }
