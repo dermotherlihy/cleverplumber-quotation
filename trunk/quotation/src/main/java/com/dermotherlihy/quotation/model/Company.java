@@ -21,11 +21,11 @@ public class Company {
 	private String addressLine1;
 	
 	
-	@Size(min=1, max=45)
+	@Size(max=45)
 	private String addressLine2;
 	
 
-	@Size(min=1, max=45)
+	@Size(max=45)
 	private String addressLine3;
 	
 	@NotNull

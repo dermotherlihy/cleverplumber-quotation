@@ -2,7 +2,7 @@ package com.dermotherlihy.quotation.model;
 
 public enum BrochureType {
 	
-	WORCHESTER_BOILER(0, "Boiler");
+	WORCHESTER_BOILER(0, "Worchester Boiler");
 	
 	private final Integer value;
 	private final String description;

@@ -54,8 +54,6 @@ public class CommentCustomIntegrationTest {
 		Assert.assertEquals(quote.getComments().size(), 1);
 		
 		Comment storedComment = quote.getComments().iterator().next();
-		Comment.entityManager().remove(storedComment);
-		
 		quote.getComments().remove(storedComment);
 		Quote.entityManager().persist(quote);
 		
