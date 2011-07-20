@@ -8,7 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
@@ -48,8 +47,7 @@ public class Quote {
     @NotNull
     private BigDecimal materialCost;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "QuoteComment", joinColumns = { @JoinColumn(name = "quoteId", unique = true) }, inverseJoinColumns = { @JoinColumn(name = "commentId") })
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "quote", cascade = CascadeType.ALL)
     private Set<Comment> comments = new HashSet<Comment>();
 
  

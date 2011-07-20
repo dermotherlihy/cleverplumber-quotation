@@ -1,12 +1,11 @@
 package com.dermotherlihy.quotation.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -17,9 +16,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 public class Comment {
 
 	
-	@ManyToOne(cascade=CascadeType.MERGE)
-	@JoinTable(name = "QuoteComment", joinColumns = {@JoinColumn(name="commentId")},
-	inverseJoinColumns = {@JoinColumn(name="quoteId")})
+	@Fetch(FetchMode.SELECT)
+	@ManyToOne
 	private Quote quote;
 
 	@NotNull
