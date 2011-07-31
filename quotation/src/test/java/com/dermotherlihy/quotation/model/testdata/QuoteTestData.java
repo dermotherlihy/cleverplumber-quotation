@@ -19,8 +19,8 @@ public class QuoteTestData {
 		quote.setBrochureType(BrochureType.WORCHESTER_BOILER);
 		quote.setCustomer(customer);
 		quote.setCompany(company);
-		quote.setLabourCost(new BigDecimal("20.00"));
-		quote.setMaterialCost(new BigDecimal("20.00"));
+		quote.setLabour(new BigDecimal("20.00"));
+		quote.setMaterials(new BigDecimal("20.00"));
 		quote.setQuoteType(QuoteType.BOILER);
 		return quote;
 	}
@@ -34,8 +34,8 @@ public class QuoteTestData {
 		Set<Comment> comments = new HashSet<Comment>();
 		comments.add(CommentTestData.createRandomComment(quote));
 		quote.setComments(comments);
-		quote.setLabourCost(new BigDecimal("20.00"));
-		quote.setMaterialCost(new BigDecimal("20.00"));
+		quote.setLabour(new BigDecimal("20.00"));
+		quote.setMaterials(new BigDecimal("20.00"));
 		quote.setQuoteType(QuoteType.BOILER);
 		quotes.add(quote);
 		return quotes;

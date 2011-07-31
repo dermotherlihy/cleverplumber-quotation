@@ -12,11 +12,15 @@ privileged aspect Quote_Roo_ToString {
         sb.append("BrochureType: ").append(getBrochureType()).append(", ");
         sb.append("Comments: ").append(getComments() == null ? "null" : getComments().size()).append(", ");
         sb.append("Company: ").append(getCompany()).append(", ");
+        sb.append("CreatedDate: ").append(getCreatedDate()).append(", ");
         sb.append("Customer: ").append(getCustomer()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
-        sb.append("LabourCost: ").append(getLabourCost()).append(", ");
-        sb.append("MaterialCost: ").append(getMaterialCost()).append(", ");
+        sb.append("Labour: ").append(getLabour()).append(", ");
+        sb.append("Materials: ").append(getMaterials()).append(", ");
         sb.append("QuoteType: ").append(getQuoteType()).append(", ");
+        sb.append("Total: ").append(getTotal()).append(", ");
+        sb.append("Vat: ").append(getVat()).append(", ");
+        sb.append("VatRate: ").append(getVatRate()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }
