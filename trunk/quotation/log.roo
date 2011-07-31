@@ -77,3 +77,41 @@ exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-28 21:34:17
 exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-28 21:35:18
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-31 09:23:51
+focus --class com.dermotherlihy.quotation.model.Comment
+field date --fieldName createdDate --type java.util.Date --dateFormat MEDIUM
+focus --class com.dermotherlihy.quotation.model.Quote
+field date --fieldName createdDate --type java.util.Date --dateFormat MEDIUM
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 09:32:15
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-31 10:23:15
+// [failed] entity --class com.dermotherlihy.quotation.model.User
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 10:24:12
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-31 10:25:21
+entity --class com.dermotherlihy.quotation.model.Employee
+field string --fieldName title --notNull --sizeMin 2 --sizeMax 4 
+field string --fieldName firstName --notNull --sizeMin 1 --sizeMax 30
+field string --fieldName lastName --notNull --sizeMin 1 --sizeMax 30
+field string --fieldName userName --notNull --sizeMin 1 --sizeMax 30 --unique 
+field string --fieldName phoneNumber --notNull --sizeMin 1 --sizeMax 30
+// [failed] test integration
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 10:33:01
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-31 10:33:42
+focus --class com.dermotherlihy.quotation.model.Employee
+field string --fieldName password --notNull --sizeMin 1 --sizeMax 30 
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 10:35:40
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-31 10:38:40
+// [failed] exit
+quit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 12:29:18
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-31 17:46:55
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 18:00:02
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-31 19:50:54
+focus --class com.dermotherlihy.quotation.model.Employee
+field string --fieldName authority --notNull --sizeMin 1
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 19:55:22

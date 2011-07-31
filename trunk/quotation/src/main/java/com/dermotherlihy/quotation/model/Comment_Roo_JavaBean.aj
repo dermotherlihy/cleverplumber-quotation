@@ -5,6 +5,7 @@ package com.dermotherlihy.quotation.model;
 
 import com.dermotherlihy.quotation.model.Quote;
 import java.lang.String;
+import java.util.Date;
 
 privileged aspect Comment_Roo_JavaBean {
     
@@ -22,6 +23,14 @@ privileged aspect Comment_Roo_JavaBean {
     
     public void Comment.setText(String text) {
         this.text = text;
+    }
+    
+    public Date Comment.getCreatedDate() {
+        return this.createdDate;
+    }
+    
+    public void Comment.setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
     
 }

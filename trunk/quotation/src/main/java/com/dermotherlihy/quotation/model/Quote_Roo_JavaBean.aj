@@ -9,6 +9,7 @@ import com.dermotherlihy.quotation.model.Company;
 import com.dermotherlihy.quotation.model.Customer;
 import com.dermotherlihy.quotation.model.QuoteType;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Set;
 
 privileged aspect Quote_Roo_JavaBean {
@@ -19,6 +20,14 @@ privileged aspect Quote_Roo_JavaBean {
     
     public void Quote.setCustomer(Customer customer) {
         this.customer = customer;
+    }
+    
+    public Company Quote.getCompany() {
+        return this.company;
+    }
+    
+    public void Quote.setCompany(Company company) {
+        this.company = company;
     }
     
     public QuoteType Quote.getQuoteType() {
@@ -37,32 +46,56 @@ privileged aspect Quote_Roo_JavaBean {
         this.brochureType = brochureType;
     }
     
-    public BigDecimal Quote.getLabourCost() {
-        return this.labourCost;
+    public BigDecimal Quote.getLabour() {
+        return this.labour;
     }
     
-    public void Quote.setLabourCost(BigDecimal labourCost) {
-        this.labourCost = labourCost;
+    public void Quote.setLabour(BigDecimal labour) {
+        this.labour = labour;
     }
     
-    public BigDecimal Quote.getMaterialCost() {
-        return this.materialCost;
+    public BigDecimal Quote.getMaterials() {
+        return this.materials;
     }
     
-    public void Quote.setMaterialCost(BigDecimal materialCost) {
-        this.materialCost = materialCost;
+    public void Quote.setMaterials(BigDecimal materials) {
+        this.materials = materials;
+    }
+    
+    public BigDecimal Quote.getVat() {
+        return this.vat;
+    }
+    
+    public void Quote.setVat(BigDecimal vat) {
+        this.vat = vat;
+    }
+    
+    public BigDecimal Quote.getVatRate() {
+        return this.vatRate;
+    }
+    
+    public void Quote.setVatRate(BigDecimal vatRate) {
+        this.vatRate = vatRate;
+    }
+    
+    public BigDecimal Quote.getTotal() {
+        return this.total;
+    }
+    
+    public void Quote.setTotal(BigDecimal total) {
+        this.total = total;
     }
     
     public void Quote.setComments(Set<Comment> comments) {
         this.comments = comments;
     }
     
-    public Company Quote.getCompany() {
-        return this.company;
+    public Date Quote.getCreatedDate() {
+        return this.createdDate;
     }
     
-    public void Quote.setCompany(Company company) {
-        this.company = company;
+    public void Quote.setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
     
 }

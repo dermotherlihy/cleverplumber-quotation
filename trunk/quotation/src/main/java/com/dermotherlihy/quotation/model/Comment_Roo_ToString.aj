@@ -9,6 +9,7 @@ privileged aspect Comment_Roo_ToString {
     
     public String Comment.toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("CreatedDate: ").append(getCreatedDate()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Quote: ").append(getQuote()).append(", ");
         sb.append("Text: ").append(getText()).append(", ");
