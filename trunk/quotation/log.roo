@@ -115,3 +115,14 @@ focus --class com.dermotherlihy.quotation.model.Employee
 field string --fieldName authority --notNull --sizeMin 1
 exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 19:55:22
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-07-31 20:48:47
+quit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-07-31 21:11:19
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-08-01 20:41:52
+focus --class com.dermotherlihy.quotation.model.Quote
+field other --fieldName createBy --type com.dermotherlihy.quotation.model.Employee --notNull 
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-08-01 20:48:50
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-08-01 21:27:55
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-08-01 21:30:31

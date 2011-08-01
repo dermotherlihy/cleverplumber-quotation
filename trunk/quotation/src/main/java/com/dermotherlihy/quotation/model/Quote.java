@@ -5,7 +5,6 @@ import java.math.RoundingMode;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
@@ -17,7 +16,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
-
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,70 +23,78 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
+import com.dermotherlihy.quotation.model.Employee;
 
 @RooJavaBean
 @RooToString
 @RooEntity
 public class Quote {
 
-	@Fetch(FetchMode.SELECT)
-	@ManyToOne
-	@JoinColumn(name = "customer_id", nullable = false)
-	private Customer customer;
+    @Fetch(FetchMode.SELECT)
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
 
-	@Fetch(FetchMode.SELECT)
-	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = false)
-	private Company company;
+    @Fetch(FetchMode.SELECT)
+    @ManyToOne
+    @JoinColumn(name = "company_id", nullable = false)
+    private Company company;
 
-	@NotNull
-	@Enumerated
-	private QuoteType quoteType;
+    @NotNull
+    @Enumerated
+    private QuoteType quoteType;
 
-	@Enumerated
-	private BrochureType brochureType;
+    @Enumerated
+    private BrochureType brochureType;
 
-	@NotNull
-	private BigDecimal labour;
+    @NotNull
+    private BigDecimal labour;
 
-	@NotNull
-	private BigDecimal materials;
+    @NotNull
+    private BigDecimal materials;
 
-	private BigDecimal vat;
-	
-	@Transient
-	private BigDecimal vatRate;
+    private BigDecimal vat;
 
-	@NotNull
-	private BigDecimal total = BigDecimal.ZERO;
+    @Transient
+    private BigDecimal vatRate;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "quote", cascade = CascadeType.ALL)
-	@OrderBy("createdDate ASC")
-	private Set<Comment> comments = new HashSet<Comment>();
+    @NotNull
+    private BigDecimal total = BigDecimal.ZERO;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(style = "M-")
-	private Date createdDate = new Date();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "quote", cascade = CascadeType.ALL)
+    @OrderBy("createdDate ASC")
+    private Set<Comment> comments = new HashSet<Comment>();
 
-	public void calculateVatAndTotal() {
-		if (totalRequiresCalculation()) {
-			vat = labour.add(materials).multiply(vatRate);
-			vat = vat.setScale(2, RoundingMode.HALF_UP);
-			total = labour.add(materials).add(vat);;
-			total = total.setScale(2, RoundingMode.HALF_UP);
-		}
-	}
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(style = "M-")
+    private Date createdDate = new Date();
 
-	private boolean totalRequiresCalculation() {
-		return BigDecimal.ZERO.equals(total);
-	}
+    @NotNull
+    @Fetch(FetchMode.SELECT)
+    @ManyToOne
+    @JoinColumn(name = "employee_id", nullable = false)
+    private Employee createdBy;
 
-	public Set<Comment> getComments() {
-		return comments;
-	}
-	
-	@Value("#{'${quote.vatRate}'}")
-	public void setVatRate(String rate) {
-		this.vatRate = new BigDecimal(rate);
-	}
+    public void calculateVatAndTotal() {
+        if (totalRequiresCalculation()) {
+            vat = labour.add(materials).multiply(vatRate);
+            vat = vat.setScale(2, RoundingMode.HALF_UP);
+            total = labour.add(materials).add(vat);
+            ;
+            total = total.setScale(2, RoundingMode.HALF_UP);
+        }
+    }
+
+    private boolean totalRequiresCalculation() {
+        return BigDecimal.ZERO.equals(total);
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    @Value("#{'${quote.vatRate}'}")
+    public void setVatRate(String rate) {
+        this.vatRate = new BigDecimal(rate);
+    }
 }
