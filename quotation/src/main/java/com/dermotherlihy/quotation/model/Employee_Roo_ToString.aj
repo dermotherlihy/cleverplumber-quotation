@@ -9,15 +9,22 @@ privileged aspect Employee_Roo_ToString {
     
     public String Employee.toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("Authorities: ").append(getAuthorities() == null ? "null" : getAuthorities().size()).append(", ");
         sb.append("Authority: ").append(getAuthority()).append(", ");
         sb.append("FirstName: ").append(getFirstName()).append(", ");
+        sb.append("FullName: ").append(getFullName()).append(", ");
+        sb.append("GrantedAuthority: ").append(getGrantedAuthority()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("LastName: ").append(getLastName()).append(", ");
         sb.append("Password: ").append(getPassword()).append(", ");
         sb.append("PhoneNumber: ").append(getPhoneNumber()).append(", ");
         sb.append("Title: ").append(getTitle()).append(", ");
-        sb.append("UserName: ").append(getUserName()).append(", ");
-        sb.append("Version: ").append(getVersion());
+        sb.append("Username: ").append(getUsername()).append(", ");
+        sb.append("Version: ").append(getVersion()).append(", ");
+        sb.append("AccountNonExpired: ").append(isAccountNonExpired()).append(", ");
+        sb.append("AccountNonLocked: ").append(isAccountNonLocked()).append(", ");
+        sb.append("CredentialsNonExpired: ").append(isCredentialsNonExpired()).append(", ");
+        sb.append("Enabled: ").append(isEnabled());
         return sb.toString();
     }
     

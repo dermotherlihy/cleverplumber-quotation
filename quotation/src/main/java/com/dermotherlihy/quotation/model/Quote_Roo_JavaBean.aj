@@ -7,6 +7,7 @@ import com.dermotherlihy.quotation.model.BrochureType;
 import com.dermotherlihy.quotation.model.Comment;
 import com.dermotherlihy.quotation.model.Company;
 import com.dermotherlihy.quotation.model.Customer;
+import com.dermotherlihy.quotation.model.Employee;
 import com.dermotherlihy.quotation.model.QuoteType;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -96,6 +97,14 @@ privileged aspect Quote_Roo_JavaBean {
     
     public void Quote.setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+    
+    public Employee Quote.getCreatedBy() {
+        return this.createdBy;
+    }
+    
+    public void Quote.setCreatedBy(Employee createdBy) {
+        this.createdBy = createdBy;
     }
     
 }

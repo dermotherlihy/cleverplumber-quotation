@@ -4,6 +4,7 @@
 package com.dermotherlihy.quotation.model;
 
 import java.lang.String;
+import org.springframework.security.core.GrantedAuthority;
 
 privileged aspect Employee_Roo_JavaBean {
     
@@ -31,12 +32,8 @@ privileged aspect Employee_Roo_JavaBean {
         this.lastName = lastName;
     }
     
-    public String Employee.getUserName() {
-        return this.userName;
-    }
-    
-    public void Employee.setUserName(String userName) {
-        this.userName = userName;
+    public void Employee.setUsername(String username) {
+        this.username = username;
     }
     
     public String Employee.getPhoneNumber() {
@@ -45,10 +42,6 @@ privileged aspect Employee_Roo_JavaBean {
     
     public void Employee.setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-    
-    public String Employee.getPassword() {
-        return this.password;
     }
     
     public void Employee.setPassword(String password) {
@@ -61,6 +54,14 @@ privileged aspect Employee_Roo_JavaBean {
     
     public void Employee.setAuthority(String authority) {
         this.authority = authority;
+    }
+    
+    public GrantedAuthority Employee.getGrantedAuthority() {
+        return this.grantedAuthority;
+    }
+    
+    public void Employee.setGrantedAuthority(GrantedAuthority grantedAuthority) {
+        this.grantedAuthority = grantedAuthority;
     }
     
 }
