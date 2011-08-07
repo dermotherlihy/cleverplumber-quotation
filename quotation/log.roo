@@ -126,3 +126,6 @@ exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-08-01 21:27:55
 exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-08-01 21:30:31
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-08-01 22:26:00
+focus --class com.dermotherlihy.quotation.model.Company
+field string --fieldName registeredNumber --notNull --sizeMin 1 --sizeMax 50

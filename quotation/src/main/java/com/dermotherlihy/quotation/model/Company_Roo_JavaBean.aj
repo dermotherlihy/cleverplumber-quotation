@@ -71,4 +71,12 @@ privileged aspect Company_Roo_JavaBean {
         this.emailAddress = emailAddress;
     }
     
+    public String Company.getRegisteredNumber() {
+        return this.registeredNumber;
+    }
+    
+    public void Company.setRegisteredNumber(String registeredNumber) {
+        this.registeredNumber = registeredNumber;
+    }
+    
 }
