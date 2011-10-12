@@ -10,7 +10,6 @@ public class CommentTestData {
 	public static Comment createRandomComment(Quote quote){
 		Comment comment = new Comment(); 
 		comment.setText(RandomStringUtils.randomAlphabetic(20));
-		comment.setQuote(quote);
 		return comment;
 	}
 }

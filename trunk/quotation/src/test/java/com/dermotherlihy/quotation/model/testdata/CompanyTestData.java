@@ -11,6 +11,7 @@ public class CompanyTestData {
 		Company company = new Company();
 		company.setName(RandomStringUtils.randomAlphabetic(30));
 		company.setVatNumber(RandomStringUtils.randomNumeric(20));
+		company.setRegisteredNumber(RandomStringUtils.randomNumeric(20));
 		company.setAddressLine1(RandomStringUtils.randomAlphabetic(15));
 		company.setAddressLine2(RandomStringUtils.randomAlphabetic(15));
 		company.setAddressLine3(RandomStringUtils.randomAlphabetic(15));

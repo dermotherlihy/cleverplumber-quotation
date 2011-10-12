@@ -100,16 +100,4 @@ privileged aspect CustomerIntegrationTest_Roo_IntegrationTest {
         org.junit.Assert.assertNotNull("Expected 'Customer' identifier to no longer be null", obj.getId());
     }
     
-    @Test
-    public void CustomerIntegrationTest.testRemove() {
-        com.dermotherlihy.quotation.model.Customer obj = dod.getRandomCustomer();
-        org.junit.Assert.assertNotNull("Data on demand for 'Customer' failed to initialize correctly", obj);
-        java.lang.Long id = obj.getId();
-        org.junit.Assert.assertNotNull("Data on demand for 'Customer' failed to provide an identifier", id);
-        obj = com.dermotherlihy.quotation.model.Customer.findCustomer(id);
-        obj.remove();
-        obj.flush();
-        org.junit.Assert.assertNull("Failed to remove 'Customer' with identifier '" + id + "'", com.dermotherlihy.quotation.model.Customer.findCustomer(id));
-    }
-    
 }
