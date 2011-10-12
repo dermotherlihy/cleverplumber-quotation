@@ -1,5 +1,9 @@
 package com.dermotherlihy.quotation.model;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,7 +21,7 @@ import com.dermotherlihy.quotation.model.testdata.QuoteTestData;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration( { "/META-INF/spring/applicationContext.xml" })
 @Transactional
-public class CommentCustomIntegrationTest {
+public class QuoteIntegrationTest {
 
 	private Customer customer = null;
 	private Company company = null;
@@ -29,36 +33,21 @@ public class CommentCustomIntegrationTest {
 		Customer.entityManager().persist(customer);
 		company = CompanyTestData.createRandomCompany();
 		Company.entityManager().persist(company);
-		employee = EmployeeTestData.createRandomEmployee(RandomStringUtils.random(12));
+		employee = EmployeeTestData.createRandomEmployee(RandomStringUtils.randomAlphabetic(10));
 		Employee.entityManager().persist(employee);
 	}
    
-	@Test
-    public void testCreateComment(){
-		
-		Quote quote = QuoteTestData.createRandomQuote(employee, customer, company);
-		Comment comment = new Comment();
-		comment.setText("Hey Mand!");
-		quote.getComments().add(comment);
-		quote.setCompany(company);
-		Quote.entityManager().persist(quote);
-		quote = Quote.findQuote(quote.getId());
-		Assert.assertEquals(quote.getComments().size(), 1);
-    }
 	
 	@Test
-    public void testDeleteComment(){
-		
+    public void testFetchQuotesByDate(){
 		Quote quote = QuoteTestData.createRandomQuote(employee, customer, company);
-		Comment comment = new Comment();
-		comment.setText("Hey Mand!");
-		quote.getComments().add(comment);
+		Calendar future = Calendar.getInstance();
+		future.add(Calendar.MONTH, 1);
+		quote.setCreatedDate(future.getTime());
 		Quote.entityManager().persist(quote);
-		Assert.assertEquals(quote.getComments().size(), 1);
-		Comment storedComment = quote.getComments().iterator().next();
-		quote.getComments().remove(storedComment);
-		Quote.entityManager().persist(quote);
-		quote = Quote.findQuote(quote.getId());
-		Assert.assertEquals(0,quote.getComments().size());
-	}
+		Calendar now = Calendar.getInstance();
+		List quotes = Quote.entityManager().createNamedQuery("Quote.byDate").setParameter(1, now.getTime()).setParameter(2, future.getTime()).getResultList();
+		Assert.assertEquals(quotes.size(), 1);
+    }
+	
 }

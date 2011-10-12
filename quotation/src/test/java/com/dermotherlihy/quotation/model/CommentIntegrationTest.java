@@ -1,5 +1,6 @@
 package com.dermotherlihy.quotation.model;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dermotherlihy.quotation.model.testdata.CompanyTestData;
 import com.dermotherlihy.quotation.model.testdata.CustomerTestData;
+import com.dermotherlihy.quotation.model.testdata.EmployeeTestData;
 import com.dermotherlihy.quotation.model.testdata.QuoteTestData;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,6 +22,7 @@ public class CommentIntegrationTest {
 	
 	private Customer customer = null;
 	private Company company = null;
+	private Employee employee = null;
 	
 	@Before
 	public void setup(){
@@ -27,15 +30,16 @@ public class CommentIntegrationTest {
 		Customer.entityManager().persist(customer);
 		company = CompanyTestData.createRandomCompany();
 		Company.entityManager().persist(company);
+		employee = EmployeeTestData.createRandomEmployee(RandomStringUtils.random(12));
+		Employee.entityManager().persist(employee);
 		
 	}
    
 	@Test
     public void testCreateComment(){
 		
-		Quote quote = QuoteTestData.createRandomQuote(customer, company);
+		Quote quote = QuoteTestData.createRandomQuote(employee, customer, company);
 		Comment comment = new Comment();
-		comment.setQuote(quote);
 		comment.setText("Hey Mand!");
 		quote.getComments().add(comment);
 		Quote.entityManager().persist(quote);
@@ -46,20 +50,14 @@ public class CommentIntegrationTest {
 	@Test
     public void testDeleteComment(){
 		
-		Quote quote = QuoteTestData.createRandomQuote(customer, company);
+		Quote quote = QuoteTestData.createRandomQuote(employee, customer, company);
 		Comment comment = new Comment();
-		comment.setQuote(quote);
 		comment.setText("Hey Mand!");
 		quote.getComments().add(comment);
 		Quote.entityManager().persist(quote);
-		Assert.assertEquals(quote.getComments().size(), 1);
-		
-		Comment storedComment = quote.getComments().iterator().next();
-		Comment.entityManager().remove(storedComment);
-		
-		quote = Quote.findQuote(quote.getId());
-		quote.getComments().remove(storedComment);
-		Assert.assertEquals(0,quote.getComments().size());
-    }
+		quote.getComments().remove(comment);
+		Quote.entityManager().persist(quote);
+		Comment.entityManager().remove(comment);
+	}
 }
 
