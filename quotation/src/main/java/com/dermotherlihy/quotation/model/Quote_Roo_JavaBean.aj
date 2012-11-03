@@ -8,6 +8,7 @@ import com.dermotherlihy.quotation.model.Comment;
 import com.dermotherlihy.quotation.model.Company;
 import com.dermotherlihy.quotation.model.Customer;
 import com.dermotherlihy.quotation.model.Employee;
+import com.dermotherlihy.quotation.model.Job;
 import com.dermotherlihy.quotation.model.QuoteType;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -105,6 +106,14 @@ privileged aspect Quote_Roo_JavaBean {
     
     public void Quote.setCreatedBy(Employee createdBy) {
         this.createdBy = createdBy;
+    }
+    
+    public Job Quote.getJob() {
+        return this.job;
+    }
+    
+    public void Quote.setJob(Job job) {
+        this.job = job;
     }
     
 }

@@ -135,3 +135,40 @@ exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-10-11 23:03:11
 exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-10-11 23:09:12
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2012-10-13 18:51:40
+focus --class com.dermotherlihy.quotation.model.Quote
+field string --fieldName jobAddressLine1  --sizeMax 45 
+field string --fieldName jobAddressLine2  --sizeMax 45 
+field string --fieldName jobAddressLine3  --sizeMax 45 
+field string --fieldName postcode  --sizeMax 15
+field string --fieldName jobReference  --sizeMax 45
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2012-10-13 19:28:19
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2012-10-13 19:28:43
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2012-10-13 20:23:10
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2012-10-28 12:36:56
+hint
+hint entity
+entity --class com.cleverplumber.domain.model.Job
+field string --fieldName jobAddressLine1  --sizeMax 45 
+field string --fieldName jobAddressLine2  --sizeMax 45 
+field string --fieldName jobAddressLine3  --sizeMax 45 
+field string --fieldName postcode  --sizeMax 15
+field string --fieldName jobReference  --sizeMax 45
+entity --class com.dermotherlihy.quotation.model.Job
+field string --fieldName jobAddressLine1  --sizeMax 45 
+field string --fieldName jobAddressLine2  --sizeMax 45 
+field string --fieldName jobAddressLine3  --sizeMax 45 
+field string --fieldName postcode  --sizeMax 15
+field string --fieldName jobReference  --sizeMax 45
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2012-10-28 15:30:55
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2012-10-28 15:31:47
+focus --class com.dermotherlihy.quotation.model.Quote
+hint relationships
+field other --fieldName job --type com.dermotherlihy.quotation.model.Job 
+// [failed] field set --fieldName job --type com.dermotherlihy.quotation.model.Job --cardinality MANY_TO_ONE 
+focus --class com.dermotherlihy.quotation.model.Job
+field other --fieldName quote --type com.dermotherlihy.quotation.model.Quote
+// [failed] field set --fieldName quote --type com.dermotherlihy.quotation.model.Job --cardinality ONE_TO_MANY --mappedBy job
+// [failed] field set --fieldName quote --type com.dermotherlihy.quotation.model.Job --cardinality ONE_TO_MANY --mappedBy job
+field set --fieldName quote --type com.dermotherlihy.quotation.model.Job --cardinality ONE_TO_MANY --mappedBy job
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2012-10-28 17:49:21
