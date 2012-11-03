@@ -1,8 +1,14 @@
 package com.dermotherlihy.quotation.model;
 
+import java.util.List;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -15,6 +21,10 @@ public class Customer {
     @NotNull
     @Size(min=1,max = 10)
     private String title;
+    
+    @Fetch(FetchMode.SELECT)
+    @OneToMany(mappedBy="customer")
+    private List<Quote> quotes;
 
     @NotNull
     @Size(min=1, max = 45)

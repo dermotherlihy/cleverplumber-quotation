@@ -3,7 +3,9 @@
 
 package com.dermotherlihy.quotation.model;
 
+import com.dermotherlihy.quotation.model.Quote;
 import java.lang.String;
+import java.util.List;
 
 privileged aspect Customer_Roo_JavaBean {
     
@@ -13,6 +15,14 @@ privileged aspect Customer_Roo_JavaBean {
     
     public void Customer.setTitle(String title) {
         this.title = title;
+    }
+    
+    public List<Quote> Customer.getQuotes() {
+        return this.quotes;
+    }
+    
+    public void Customer.setQuotes(List<Quote> quotes) {
+        this.quotes = quotes;
     }
     
     public String Customer.getFirstName() {

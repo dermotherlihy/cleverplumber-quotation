@@ -1,7 +1,6 @@
 package com.dermotherlihy.quotation.model;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang.RandomStringUtils;
@@ -49,5 +48,13 @@ public class QuoteIntegrationTest {
 		List quotes = Quote.entityManager().createNamedQuery("Quote.byDate").setParameter(1, now.getTime()).setParameter(2, future.getTime()).getResultList();
 		Assert.assertEquals(quotes.size(), 1);
     }
+	
+	@Test
+    public void testStoreQuoteWithJobDetails(){
+		Quote quote = QuoteTestData.createRandomQuote(employee, customer, company);
+		Job job = new Job();
+		job.setUpJobDefaults(customer);
+		Quote.entityManager().persist(quote);
+   }
 	
 }

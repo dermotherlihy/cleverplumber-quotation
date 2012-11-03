@@ -9,20 +9,7 @@ privileged aspect Quote_Roo_ToString {
     
     public String Quote.toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("BrochureType: ").append(getBrochureType()).append(", ");
-        sb.append("Comments: ").append(getComments() == null ? "null" : getComments().size()).append(", ");
-        sb.append("Company: ").append(getCompany()).append(", ");
-        sb.append("CreatedBy: ").append(getCreatedBy()).append(", ");
-        sb.append("CreatedDate: ").append(getCreatedDate()).append(", ");
-        sb.append("Customer: ").append(getCustomer()).append(", ");
-        sb.append("Id: ").append(getId()).append(", ");
-        sb.append("Labour: ").append(getLabour()).append(", ");
-        sb.append("Materials: ").append(getMaterials()).append(", ");
-        sb.append("QuoteType: ").append(getQuoteType()).append(", ");
-        sb.append("Total: ").append(getTotal()).append(", ");
-        sb.append("Vat: ").append(getVat()).append(", ");
-        sb.append("VatRate: ").append(getVatRate()).append(", ");
-        sb.append("Version: ").append(getVersion());
+        sb.append("Comments: ").append(getComments() == null ? "null" : getComments().size());
         return sb.toString();
     }
     

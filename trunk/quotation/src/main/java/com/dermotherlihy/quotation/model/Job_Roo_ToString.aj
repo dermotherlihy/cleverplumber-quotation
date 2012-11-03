@@ -5,24 +5,16 @@ package com.dermotherlihy.quotation.model;
 
 import java.lang.String;
 
-privileged aspect Customer_Roo_ToString {
+privileged aspect Job_Roo_ToString {
     
-    public String Customer.toString() {
+    public String Job.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("AddressLine1: ").append(getAddressLine1()).append(", ");
         sb.append("AddressLine2: ").append(getAddressLine2()).append(", ");
         sb.append("AddressLine3: ").append(getAddressLine3()).append(", ");
-        sb.append("Description: ").append(getDescription()).append(", ");
-        sb.append("EmailAddress: ").append(getEmailAddress()).append(", ");
-        sb.append("FirstName: ").append(getFirstName()).append(", ");
-        sb.append("FullName: ").append(getFullName()).append(", ");
-        sb.append("Id: ").append(getId()).append(", ");
-        sb.append("LastName: ").append(getLastName()).append(", ");
-        sb.append("PhoneNumber: ").append(getPhoneNumber()).append(", ");
         sb.append("Postcode: ").append(getPostcode()).append(", ");
         sb.append("Quotes: ").append(getQuotes() == null ? "null" : getQuotes().size()).append(", ");
-        sb.append("Title: ").append(getTitle()).append(", ");
-        sb.append("Version: ").append(getVersion());
+        sb.append("ReferenceNumber: ").append(getReferenceNumber());
         return sb.toString();
     }
     
